@@ -13,8 +13,7 @@ sudo apt-get install -y imagemagick gnome-web-photo pinta
 
 ## Setup - Codeception tests ##
 $ cd ~
-$ mkdir cc-vis-compare difference
-$ cd cc-vis-compare
+$ mkdir difference
 $ codecept bootstrap
 $ codecept generate:cest acceptance CreateScreenshotsCept
 $ codecept generate:cest acceptance CompareCept
