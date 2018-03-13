@@ -17,6 +17,7 @@ After setup.sh was completely executed replace the contents of files acceptance.
 ### Usage
 - Add all urls to file urls.txt, and then execute
 ```
-$ vendor/bin/codecept build run --debug
+$ vendor/bin/codecept run --debug
 ```
+- This will execute test `tests/acceptance/make_screenshots_Cest`
 - You should see screenshots of sites listed in url.txt in folder `shots/`
