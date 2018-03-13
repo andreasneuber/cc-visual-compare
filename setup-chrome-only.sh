@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 
-## Setup - required linux packages ##
-sudo add-apt-repository ppa:ondrej/php
-sudo apt-get -y update
-sudo apt-get install -y curl pinta unzip libxi6 libgconf-2-4
-sudo apt-get install -y php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-mcrypt php7.0-curl php7.0-intl php7.0-xsl php7.0-mbstring php7.0-zip php7.0-bcmath php7.0-iconv
-
-
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-
+sudo apt-get install -y unzip libxi6 libgconf-2-4
 
 # Remove existing downloads and binaries so we can start from scratch.
 sudo apt-get remove google-chrome-stable
