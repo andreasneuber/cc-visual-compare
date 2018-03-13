@@ -21,7 +21,7 @@ class make_screenshots_Cest {
             while( !feof($file) ) {
 
                 $url = fgets($file);
-                $I->amOnUrl( $url );
+                $I->amOnUrl( rtrim( $url ) );
 
                 $image_name = $I->url_2_image_name( $url );
                 $I->makeScreenshot( $image_name );
