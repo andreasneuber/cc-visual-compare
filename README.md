@@ -1,6 +1,6 @@
 # cc-visual-compare
 
-Please note: this readme is "WIP" work in progress, in a few days info (esp "Usage") will be updated/completed.
+Please note: This readme is "WIP", work in progress. In a few days information (esp under "Usage") will be completed.
 
 ### How to start
 ```
