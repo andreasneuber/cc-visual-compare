@@ -18,6 +18,8 @@ class make_screenshots_Cest {
 
         if ($file = fopen("urls.txt", "r")) {
 
+            $now_folder = $I->create_now_folder( $I );
+
             while( !feof($file) ) {
 
                 $url = fgets($file);
@@ -26,7 +28,7 @@ class make_screenshots_Cest {
                 $image_name = $I->url_2_image_name( $url );
                 $I->makeScreenshot( $image_name );
 
-                $cmd = 'cp tests/_output/debug/' . $image_name .'.png  ' . 'shots/' . $image_name . '.png';
+                $cmd = 'cp tests/_output/debug/' . $image_name .'.png  ' . 'shots/' . $now_folder . '/' . $image_name . '.png';
                 $I->runShellCommand( $cmd );
             }
             fclose($file);

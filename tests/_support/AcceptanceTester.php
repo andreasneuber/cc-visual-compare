@@ -37,4 +37,10 @@ class AcceptanceTester extends \Codeception\Actor
        return $image_name = str_replace( '/' , '_' , $arr[1] );
    }
 
+   public function create_now_folder( $I ){
+       $now = date("Y-m-d_H:i:s");
+       $I->runShellCommand( 'mkdir shots/' . $now );
+       return $now;
+   }
+
 }
