@@ -15,7 +15,7 @@ $ composer install
 $ vendor/bin/codecept build
 ```
 
-After setup.sh was completely executed replace the contents of files acceptance.suite.yml / CompareCept.php / CreateScreenshotsCept.php produced by Codeception with the ones in this repo.
+
 
 ### Usage
 - Add all urls to file urls.txt, and then execute
