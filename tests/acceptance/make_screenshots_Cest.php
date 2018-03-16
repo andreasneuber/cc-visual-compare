@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * Class make_screenshots_Cest
+ *
+ * @group make
+ */
 class make_screenshots_Cest {
 
 
