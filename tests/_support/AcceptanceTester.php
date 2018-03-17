@@ -51,48 +51,4 @@ class AcceptanceTester extends \Codeception\Actor
        return array( 'level' => $similarity_level , 'url' => 'http://' . substr( $file , 0, -4 ) );
    }
 
-   public function output_failing_test_data_in_console( $failing_test_data ){
-       echo "\n";
-       echo "\n";
-       echo '====================================================================================================';
-       echo "\n";
-
-       foreach( $failing_test_data as $filename => $value ){
-           echo 'File: '. $filename .' -> ' . $value['level'];
-           echo "\n";
-       }
-
-       echo "\n";
-       echo "\n";
-       echo '====================================================================================================';
-       echo "\n";
-
-   }
-
-   public function create_test_report( $failed , $failing_test_data ){
-
-        $myfile = fopen("TEST_RESULTS.html", "w") or die("Unable to open file!");
-
-        $txt = "<html><head><title>TEST - RESULTS</title></head><body>" . "\n";
-        fwrite($myfile, $txt);
-
-        if( $failed ){
-            $txt = "<h1 style='color: red;'>Test failed</h1>";
-            fwrite($myfile, $txt);
-
-            foreach( $failing_test_data as $filename => $value ){
-                $txt = "<div>" . 'File: '. $filename .' -> ' . $value['level'] . " | <a href='" . $value['url'] . "'>" . $value['url']. "</a></div>";
-                fwrite($myfile, $txt);
-            }
-        }
-        else {
-            $txt = "<h1 style='color: green;'>Test failed</h1>";
-            fwrite($myfile, $txt);
-        }
-
-        $txt = "</body></html>" . "\n";
-        fwrite($myfile, $txt);
-
-        fclose($myfile);
-    }
 }

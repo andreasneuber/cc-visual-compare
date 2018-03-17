@@ -1,6 +1,7 @@
 <?php
 
 use Helper\Compare_Images;
+use Helper\Report_Creator;
 
 /**
  * Class compare_screenshots_Cest
@@ -71,13 +72,15 @@ class compare_screenshots_Cest {
 
     private function digest_failing_test_data( AcceptanceTester $I ){
 
+        $report_creator = new Report_Creator();
+
         if( $this->test_failed ){
 
-            $I->output_failing_test_data_in_console( $this->failing_test_data );
+            $report_creator->output_failing_test_data_in_console( $this->failing_test_data );
 
-            $I->create_test_report( $this->test_failed , $this->failing_test_data );
+            $report_creator->create_test_report( $this->test_failed , $this->failing_test_data );
 
-            $I->fail( 'Change in image has been detected. Check details in TEST_RESULTS.html' );
+            $I->fail( 'Change in image has been detected. Check details in ' . $report_creator::FILENAME_HTML );
         }
 
     }
