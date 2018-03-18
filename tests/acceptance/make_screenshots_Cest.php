@@ -20,7 +20,7 @@ class make_screenshots_Cest {
     public function tryToTest(AcceptanceTester $I)
     {
 
-        if ($file = fopen("urls.txt", "r")) {
+        if ( $file = fopen("urls.txt", "r" )) {
 
             $now_folder = $I->create_now_folder( $I );
 
@@ -28,6 +28,7 @@ class make_screenshots_Cest {
 
                 $url = fgets($file);
                 $I->amOnUrl( rtrim( $url ) );
+                $I->wait_for_document_ready();
 
                 $image_name = $I->url_2_image_name( $url );
                 $I->makeScreenshot( $image_name );

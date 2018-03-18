@@ -43,12 +43,11 @@ class AcceptanceTester extends \Codeception\Actor
        return $now;
    }
 
-   public function create_sub_dirs_name_array(){
-       return $dirs = array_filter( glob('shots/*' ), 'is_dir' );
-   }
-
-   public function prepare_failing_test_data( $file , $similarity_level ){
-       return array( 'level' => $similarity_level , 'url' => 'http://' . substr( $file , 0, -4 ) );
-   }
+    public function wait_for_document_ready( $timeout = 20 ) {
+        while ( $this->executeJS( "return jQuery(':animated').length" ) != 0 ) {
+        }
+        while ( $this->executeJS( "return document.readyState" ) !== "complete" ) {
+        }
+    }
 
 }

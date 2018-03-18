@@ -23,4 +23,13 @@ class FunctionalTester extends \Codeception\Actor
    /**
     * Define custom actions here
     */
+
+    public function create_sub_dirs_name_array(){
+        return $dirs = array_filter( glob('shots/*' ), 'is_dir' );
+    }
+
+    public function prepare_failing_test_data( $file , $similarity_level ){
+        return array( 'level' => $similarity_level , 'url' => 'http://' . substr( $file , 0, -4 ) );
+    }
+
 }

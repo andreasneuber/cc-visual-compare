@@ -1,19 +1,9 @@
-# Codeception Test Suite Configuration
-#
-# Suite for acceptance tests.
-# Perform tests in browser using the WebDriver or PhpBrowser.
-# If you need both WebDriver and PHPBrowser tests - create a separate suite.
-
 actor: AcceptanceTester
 
 modules:
     enabled:
-        - \Helper\Acceptance
         - WebDriver
-        - Asserts
         - Cli
-        - Filesystem
-
     config:
         WebDriver:
             url: 'http://example.org'
@@ -21,7 +11,6 @@ modules:
             browser: chrome
             port: 9515
             capabilities:
-                #unexpectedAlertBehaviour: 'accept'
                 chromeOptions:
                     args: ['--disable-gpu', '--no-sandbox', '--disable-infobars', '--lang=en']
                     binary: "/usr/bin/google-chrome-stable"

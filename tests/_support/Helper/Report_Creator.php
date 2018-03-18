@@ -33,7 +33,7 @@ class Report_Creator {
     }
 
 
-    public function create_test_report( $failed , $failing_test_data ){
+    public function create_test_report( $failed , $failing_test_data=null ){
 
         $myfile = fopen(self::FILENAME_HTML , "w" ) or die( "Unable to open " . self::FILENAME_HTML );
 
@@ -50,7 +50,7 @@ class Report_Creator {
             }
         }
         else {
-            $txt = "<h1 style='color: green;'>Test failed</h1>";
+            $txt = "<h1 style='color: green;'>Test passed</h1>";
             fwrite($myfile, $txt);
         }
 

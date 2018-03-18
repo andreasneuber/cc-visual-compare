@@ -15,7 +15,7 @@ class compare_screenshots_Cest {
     private $failing_test_data = array();
 
 
-    public function _before(AcceptanceTester $I){
+    public function _before( FunctionalTester $I ){
         // Check if there are 2 folders in dir  shots/  - if 1 or more than 2 - stop script, tell user to either add 1 dir or delete older dirs
         // .. not very graceful and professional but for now should do the trick ..
 
@@ -25,15 +25,15 @@ class compare_screenshots_Cest {
         }
     }
 
-    public function _after(AcceptanceTester $I)
+    public function _after( FunctionalTester $I )
     {
     }
 
     // tests
-    public function tryToTest(AcceptanceTester $I)
+    public function tryToTest( FunctionalTester $I )
     {
         // Iterate through all files in one of the 2 shots/ dirs, and compare with files in other shots/ dir
-        $this->iterate_through_images_and_establish_similarity_levels( $I );
+        $this->iterate_through_images_and_establish_similarity_levels( $I , true );
 
         // Let pass or fail. If fail, explain why
         $this->digest_failing_test_data( $I );
@@ -41,7 +41,7 @@ class compare_screenshots_Cest {
 
 
     // helpers
-    private function iterate_through_images_and_establish_similarity_levels( AcceptanceTester $I , $debug=false ){
+    private function iterate_through_images_and_establish_similarity_levels( FunctionalTester $I , $debug=false ){
 
         $compare_images = new Compare_Images();
 
@@ -59,18 +59,23 @@ class compare_screenshots_Cest {
                     $this->failing_test_data[ $file ]   = $I->prepare_failing_test_data( $file , $similarity_level );
                 }
 
-                echo "-------------------------------------------------------------------" . "\n";
-                echo $file . ' => similarity level: ' . $similarity_level;
-                echo "\n";
+                if( $debug ){
+                    echo "-------------------------------------------------------------------" . "\n";
+                    echo $file . ' => similarity level: ' . $similarity_level;
+                    echo "\n";
+                }
             }
             closedir($handle);
+            if( $debug ){
+                echo "-------------------------------------------------------------------" . "\n";
+            }
         }
 
-        echo "-------------------------------------------------------------------" . "\n";
+
     }
 
 
-    private function digest_failing_test_data( AcceptanceTester $I ){
+    private function digest_failing_test_data( FunctionalTester $I ){
 
         $report_creator = new Report_Creator();
 
@@ -81,6 +86,9 @@ class compare_screenshots_Cest {
             $report_creator->create_test_report( $this->test_failed , $this->failing_test_data );
 
             $I->fail( 'Change in image has been detected. Check details in ' . $report_creator::FILENAME_HTML );
+        }
+        else {
+            $report_creator->create_test_report( false );
         }
 
     }
