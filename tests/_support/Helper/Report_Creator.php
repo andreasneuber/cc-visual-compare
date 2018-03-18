@@ -41,11 +41,13 @@ class Report_Creator {
         fwrite($myfile, $txt);
 
         if( $failed ){
-            $txt = "<h1 style='color: red;'>Test failed</h1>";
+            $txt = "<h1 style='color: red;'>Test failed</h1>" . $this->add_linebreak();
             fwrite($myfile, $txt);
 
             foreach( $failing_test_data as $filename => $value ){
-                $txt = "<div>" . 'File: '. $filename .' -> ' . $value['level'] . " | <a href='" . $value['url'] . "'>" . $value['url']. "</a></div>";
+                $txt = "<div>" . 'File: '. $filename .' -> ' . $value['level'] . " | <a href='" . $value['url'] . "'>" . $value['url']. "</a>";
+                $txt .= " | <a target='_blank' href='difference/" . $filename. "'>difference</a>";
+                $txt .= "</div>" . $this->add_linebreak();
                 fwrite($myfile, $txt);
             }
         }

@@ -15,6 +15,8 @@ class compare_screenshots_Cest {
 
     private $failing_test_data = array();
 
+    private $directories_to_compare;
+
 
     public function _before( FunctionalTester $I ){
         // Check if there are 2 folders in dir  shots/  - if 1 or more than 2 - stop script, tell user to either add 1 dir or delete older dirs
@@ -47,7 +49,7 @@ class compare_screenshots_Cest {
         $image = new ImageCompare();
 
         $dirs = $I->create_sub_dirs_name_array();
-
+        $this->directories_to_compare = $dirs;
 
         if ( $handle = opendir( $dirs[0] ) ) {
             while (false !== ($file = readdir($handle))) {
@@ -84,12 +86,24 @@ class compare_screenshots_Cest {
 
             $report_creator->output_failing_test_data_in_console( $this->failing_test_data );
 
+            $this->create_difference_image_for_failing_comparisons( $I );
+
             $report_creator->create_test_report( $this->test_failed , $this->failing_test_data );
 
             $I->fail( 'Change in image has been detected. Check details in ' . $report_creator::FILENAME_HTML );
         }
         else {
             $report_creator->create_test_report( false );
+        }
+
+    }
+
+    private function create_difference_image_for_failing_comparisons( FunctionalTester $I ){
+        $dirs   = $this->directories_to_compare;
+        $files  = array_keys( $this->failing_test_data );
+
+        foreach( $files as $file ){
+            $I->runShellCommand( 'compare ' . $dirs[0] . '/' . $file .'  ' . $dirs[1] . '/' . $file . '  difference/' . $file );
         }
 
     }
