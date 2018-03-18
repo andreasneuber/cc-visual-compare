@@ -1,11 +1,11 @@
 # cc-visual-compare
 
-### Purpose
+## Purpose
 Purpose of this test script is to catch easily dramatic apperance changes of a webpage. 
 This might happen due to e.g. missing CSS links or cache problems. 
 
 
-### How to start
+## How to start
 ```
 $ cd ~
 $ git clone https://github.com/andreasneuber/cc-visual-compare.git
@@ -17,7 +17,7 @@ $ vendor/bin/codecept build
 
 
 
-### Usage
+## Usage
 - Add all urls to file urls.txt, and then execute
 ```
 $ vendor/bin/codecept run acceptance -g make --debug
@@ -33,6 +33,8 @@ $ vendor/bin/codecept run functional -g compare --debug
 - If any of the compared images has a similarity level of more than 0 => test fails
 - You will see output on console mentioning file, and similarity level
 - A TEST_RESULTS.html is created additionally, which also contains a link to website in question
+
+
 
 ## Credits
 - [Codeception](http://codeception.com/)
