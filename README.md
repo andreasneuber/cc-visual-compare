@@ -33,3 +33,7 @@ $ vendor/bin/codecept run functional -g compare --debug
 - If any of the compared images has a similarity level of more than 0 => test fails
 - You will see output on console mentioning file, and similarity level
 - A TEST_RESULTS.html is created additionally, which also contains a link to website in question
+
+## Credits
+- [Codeception](http://codeception.com/)
+- [Vajira Lasantha - PHP-Image-Compare class](https://github.com/vajiralasantha/PHP-Image-Compare)
