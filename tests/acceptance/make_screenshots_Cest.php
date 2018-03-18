@@ -20,7 +20,7 @@ class make_screenshots_Cest {
     public function tryToTest(AcceptanceTester $I)
     {
 
-        if ( $file = fopen("urls.txt", "r" )) {
+        if ( $file = fopen("urls.txt", "r" )  or die('Could not open urls.txt file') ) {
 
             $now_folder = $I->create_now_folder( $I );
 
