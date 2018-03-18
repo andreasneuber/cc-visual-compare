@@ -30,9 +30,9 @@ $ vendor/bin/codecept run acceptance -g make --debug
 ```
 $ vendor/bin/codecept run functional -g compare --debug
 ```
-- If any of the compared images has a similarity level of more than 0 => test fails
-- You will see output on console mentioning file, and similarity level
-- A TEST_RESULTS.html is created additionally, which also contains a link to website in question
+- If any of the compared images has a similarity difference of more than 0 => test fails
+- You will see output on console mentioning file and similarity difference
+- A TEST_RESULTS.html is created, which contains a link to webpage in question and difference file
 
 
 
