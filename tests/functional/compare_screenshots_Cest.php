@@ -1,7 +1,8 @@
 <?php
 
-use Helper\Compare_Images;
 use Helper\Report_Creator;
+use BigV\ImageCompare;
+
 
 /**
  * Class compare_screenshots_Cest
@@ -43,7 +44,7 @@ class compare_screenshots_Cest {
     // helpers
     private function iterate_through_images_and_establish_similarity_levels( FunctionalTester $I , $debug=false ){
 
-        $compare_images = new Compare_Images();
+        $image = new ImageCompare();
 
         $dirs = $I->create_sub_dirs_name_array();
 
@@ -52,7 +53,7 @@ class compare_screenshots_Cest {
             while (false !== ($file = readdir($handle))) {
                 if ('.' === $file || '..' === $file ) continue;
 
-                $similarity_level = $compare_images->run_compare( $dirs[0] . '/' . $file , $dirs[1] . '/' . $file );
+                $similarity_level = $image->compare( $dirs[0] . '/' . $file , $dirs[1] . '/' . $file );
 
                 if( $similarity_level > 0 ){    // 0 => may be too strict, perhaps higher tolerance level needed
                     $this->test_failed                  = true;

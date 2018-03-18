@@ -4,7 +4,8 @@
     },
     "require": {
         "enm1989/chromedriver": "^2.36",
-        "components/jquery": "^3.3"
+        "components/jquery": "^3.3",
+        "vajiral/php-image-compare": "^1.0"
     }
 
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb7e22beeb0efd0dd84a2b886add81f1",
+    "content-hash": "05fab207cd30528e52820fe78952f7e9",
     "packages": [
         {
             "name": "components/jquery",
@@ -85,6 +85,51 @@
                 "webdriver"
             ],
             "time": "2018-03-06T20:49:24+00:00"
+        },
+        {
+            "name": "vajiral/php-image-compare",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vajiralasantha/PHP-Image-Compare.git",
+                "reference": "9ea466236c91b8bfa169b3459e3089d2f4b31f7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vajiralasantha/PHP-Image-Compare/zipball/9ea466236c91b8bfa169b3459e3089d2f4b31f7e",
+                "reference": "9ea466236c91b8bfa169b3459e3089d2f4b31f7e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": "^5.5.9 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BigV\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vajira Lasantha",
+                    "email": "vajee555@gmail.com"
+                }
+            ],
+            "description": "A light weight PHP class that can compare two (jpg/png) images to find if they are similar.",
+            "keywords": [
+                "PHP Library",
+                "image",
+                "image compare",
+                "jpg",
+                "lightweight",
+                "png"
+            ],
+            "time": "2017-05-04T01:48:54+00:00"
         }
     ],
     "packages-dev": [
