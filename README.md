@@ -22,8 +22,8 @@ $ vendor/bin/codecept build
 ```
 $ vendor/bin/codecept run acceptance -g make --debug
 ```
-- This will execute test `tests/acceptance/make_screenshots_Cest`
-- You should see screenshots of sites listed in url.txt in a subfolder folder of directory `shots/`
+- This will execute test `tests/acceptance/make_screenshots_Cest.php`
+- You should see screenshots (of sites listed in url.txt) in a subfolder of directory `shots/`
 - Wait for some time (hours / days / weeks / months / years :-) )
 - Repeat above steps, now you have 2 subdirs under `shots/`
 - Run test file for comparing images
